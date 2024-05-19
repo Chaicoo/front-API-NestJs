@@ -2,6 +2,7 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import Welcome from "@/pages/welcome/Welcome";
 import Home from "@/pages/home/Home";
+import { useAuth } from "@/contexts/useAuth";
 
 export const routes = [
   { path: "/", element: <Welcome /> },
@@ -13,20 +14,19 @@ interface PrivateRouteProps {
 }
 
 function PrivateRoute({ element }: PrivateRouteProps) {
-  const auth = true;
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // auth.logout();
     navigate("/");
   };
 
-  if (!auth) {
+  if (!isAuthenticated) {
     return <Navigate to="/" />;
   }
 
   return (
-    <div className="mx-10 mt-20">
+    <div className="mt-20">
       {element}
     </div>
   );
