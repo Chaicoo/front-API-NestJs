@@ -4,7 +4,7 @@ import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 
-const Sigin: React.FC = () => {
+const Signup: React.FC = () => {
     return (
         <Card className="w-[350px]">
             <CardHeader>
@@ -34,10 +34,10 @@ const Sigin: React.FC = () => {
                 </form>
             </CardContent>
             <CardFooter className="flex justify-between">
-                <Button>Criar</Button>
+                <Button className="ml-auto">Criar</Button>
             </CardFooter>
         </Card>
     );
 }
 
-export default Sigin;
+export default Signup;
